@@ -1,0 +1,29 @@
+#include"stdafx.h"
+#include <iostream>
+using namespace std;
+template<typename T>
+class testclass
+{
+public:
+	static int _data;
+};
+int testclass<int>::_data = 1;
+int testclass<char>::_data = 2;
+int main()
+{
+	cout << testclass<int>::_data << endl;
+	cout << testclass<char>::_data << endl;
+	testclass<int> object1, object2;
+	testclass<char> objc1, objc2;
+	cout <<" object1._data: " <<object1._data << endl;
+	cout <<"object2._data: "<<object2._data << endl;
+	cout <<"objc1._data: " <<objc1._data << endl;
+	cout <<"objc2._data: " <<objc2._data << endl;
+	object1._data = 3;
+	objc1._data = 4;
+	cout << " object1._data: " << object1._data << endl;
+	cout << "object2._data: " << object2._data << endl;
+	cout << "objc1._data: " << objc1._data << endl;
+	cout << "objc2._data: " << objc2._data << endl;
+	system("pause");
+}
