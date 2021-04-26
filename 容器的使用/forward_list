@@ -1,0 +1,54 @@
+#include "stdafx.h"
+#include<vector>
+#include<iostream>
+#include<forward_list>
+#include<algorithm>
+#include<ctime>
+#include<cstdlib>
+#include<cstdio>
+#include<stdexcept>
+#include<string>
+const long ASIZE = 100000L;
+using namespace std;
+void test_forwardlist(long &value) {
+	cout << "\ntest_list().......... \n";
+
+ forward_list<string> c;
+	char buf[10];
+
+	clock_t timeStart = clock();
+	for (long i = 0; i < value; ++i) {
+		try {
+			sprintf_s(buf, 10, "%d", rand());
+			c.push_front(string(buf));
+		}
+		catch (exception &p) {
+			cout << "i=" << i << " " << p.what() << endl;
+			abort();
+		}
+	}
+	cout << "milli-seconds : " << (clock() - timeStart) << endl;
+	cout << "forwardlist.max_size()= " << c.max_size() << endl;    //357913941
+	cout << "list.front()= " << c.front() << endl;
+	string target = get_a_target_string();
+	timeStart = clock();
+	auto pItem = find(c.begin(), c.end(), target);
+	cout << "std::find(), milli-seconds : " << (clock() - timeStart) << endl;
+
+	if (pItem != c.end())
+		cout << "found, " << *pItem << endl;
+	else
+		cout << "not found! " << endl;
+
+	timeStart = clock();
+	c.sort();
+	cout << "c.sort(), milli-seconds : " << (clock() - timeStart) << endl;
+}
+int _tmain(int argc, _TCHAR* argv[])
+{
+	long select;
+	cout << "how many elements: ";
+	cin >> select;
+	test_forwardlist(select);
+	system("pause");
+}
