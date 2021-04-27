@@ -15,7 +15,7 @@ list类本身具有sort方法,容器本身实现的sort的性能一般比标准�
 
 multiset和multimap底层是使用红黑树实现的.
 
-因为multimap支持重复的key,因此不能使用重载的[],
+multimap支持重复的key,因此不能使用重载的[],其他map键值唯一.
 
 unordered_multiset和unordered_multimap的元素个数小于篮子数目,若元素数目达到篮子个数,则容器扩容,将篮子数组扩充约一倍.
 
