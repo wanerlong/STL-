@@ -23,11 +23,5 @@ unordered_multiset和unordered_multimap的元素个数小于篮子数目,若元�
 
 STL容器默认的分配器是std::allocator,除此之外gcc额外定义了几个分配器,其头文件均在目录ext下.
 ![图片3](https://user-images.githubusercontent.com/72439295/116251663-73d76000-a7a1-11eb-910e-025e9b59010d.png)
-STL容器源码分析
-STL设计模式:OOP和GP
 
-OOP(Object-Oriented Programming)和GP(Generic Programming)是STL容器设计中使用的两种设计模式.
-
-OOP的目的是将数据和方法绑定在一起,例如对std::list容器进行排序要调用std::list::sort方法.
-GP的目的是将数据和方法分离开来,例如对std::vector容器进行排序要调用std::sort方法.
-这种不同是因为std::sort方法内部调用了iterator的-运算,std::list的iterator没有实现-运算符,而std::vector的iterator实现了-运算符.
+VC6.0的默认分配器只是对::operator new和::operator delete的简单封装.
