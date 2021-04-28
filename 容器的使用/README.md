@@ -25,3 +25,5 @@ STL容器默认的分配器是std::allocator,除此之外gcc额外定义了几�
 ![图片3](https://user-images.githubusercontent.com/72439295/116251663-73d76000-a7a1-11eb-910e-025e9b59010d.png)
 
 VC6.0的默认分配器只是对::operator new和::operator delete的简单封装.
+malloc每次申请内存都会有额外的开销，比如cookie上记录了每次申请的内存的大小。
+![图片1](https://user-images.githubusercontent.com/72439295/116352880-6b763800-a828-11eb-9c67-42afd708d495.png)
