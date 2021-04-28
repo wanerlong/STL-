@@ -32,4 +32,9 @@ malloc每次申请内存都会有额外的开销，比如cookie上记录了每�
 std::alloc内部维护一个链表数组,数组中的每个链表保存某个尺寸的对象,减少了调用malloc的次数,从而减小了malloc带来的额外开销.
 
 ![图片2](https://user-images.githubusercontent.com/72439295/116370370-e9443e80-a83c-11eb-97b9-738d93bc225c.png)
+容器
+
+STL容器的各实现类关系如下图所示,以缩排形式表示衍生关系(主要是复合关系).于是可以说stack里面有一个deque,或者说set里面有一个rb_tree.
+
+![图片3](https://user-images.githubusercontent.com/72439295/116371085-a040ba00-a83d-11eb-97a1-36e9da8be9ba.png)
 
