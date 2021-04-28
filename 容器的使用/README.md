@@ -45,6 +45,16 @@ gcc2.9中list如下所示:
 
 ![图片4](https://user-images.githubusercontent.com/72439295/116380521-9f605600-a846-11eb-8ec1-8e71c8a006f5.png)
 
+迭代器__list_iterator重载了指针的*,->,++,--等运算符,并定义了iterator_category、value_type、difference_type、pointer和pointer5个关联类型(associated types),这些特征将被STL算法使用.
+
+![图片5](https://user-images.githubusercontent.com/72439295/116410545-77cdb580-a867-11eb-85e1-314af1af76c1.png)
+
+迭代器的5个关联类型在类中均有定义,但是指针类型的关联类型需要根据指针类别进行确定,为了使STL算法同时兼容迭代器和一般指针,就在迭代器(指针)和算法之间加一个中间层萃取器(traits).
+
+迭代器萃取器iterator_traits能够兼容迭代器和一般指针,获取其5个关联类型:iterator_category、value_type、difference_type、pointer和pointer.
+
+![图片6](https://user-images.githubusercontent.com/72439295/116410729-a0ee4600-a867-11eb-982a-2ba7171ef1fc.png)
+
 
 
 
