@@ -55,6 +55,14 @@ gcc2.9中list如下所示:
 
 ![图片6](https://user-images.githubusercontent.com/72439295/116410729-a0ee4600-a867-11eb-982a-2ba7171ef1fc.png)
 
+容器vector
 
+![图片7](https://user-images.githubusercontent.com/72439295/116498919-76d76b00-a8dd-11eb-966e-8a0ceaa56700.png)
+
+容器vector的迭代器start指向第一个元素,迭代器finish指向最后一个元素的下一个元素,这两个迭代器对应begin()和end()的返回值,维持了前闭后开的特性.
+
+vector对使用者是连续的,因此重载了[]运算符.
+
+vector的实现也是连续的,因此使用指针类型做迭代器(即迭代器vector<T>::iterator的实际类型是原生指针T*).
 
 
