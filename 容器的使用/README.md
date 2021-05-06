@@ -65,4 +65,8 @@ vector对使用者是连续的,因此重载了[]运算符.
 
 vector的实现也是连续的,因此使用指针类型做迭代器(即迭代器vector<T>::iterator的实际类型是原生指针T*).
 
+容器deque
 
+容器deque内部是分段连续的,对使用者表现为连续的.
+![ETCZOP$0$(@VIT(1)G2YYRX](https://user-images.githubusercontent.com/72439295/117256389-36e42b00-ae7d-11eb-8323-5f7e18505c36.png)
+deque也可叫双端队列，容器内部展现为指针，指向每一个buffer，扩充的时候就添加buffer再用指针指向它。
