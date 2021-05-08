@@ -70,3 +70,34 @@ vector的实现也是连续的,因此使用指针类型做迭代器(即迭代器
 容器deque内部是分段连续的,对使用者表现为连续的.
 ![ETCZOP$0$(@VIT(1)G2YYRX](https://user-images.githubusercontent.com/72439295/117256389-36e42b00-ae7d-11eb-8323-5f7e18505c36.png)
 deque也可叫双端队列，容器内部展现为指针，指向每一个buffer，扩充的时候就添加buffer再用指针指向它。
+
+容器queue和stack
+
+![图片1](https://user-images.githubusercontent.com/72439295/117523061-64e67e00-afe9-11eb-9475-ee58cf91e81c.png)
+![图片2](https://user-images.githubusercontent.com/72439295/117523063-66b04180-afe9-11eb-950c-2a92c5e0d5c5.png)
+
+容器queue和stack作为deque的适配器(adapter),其内部均默认封装了一个deque作为底层容器,通过该deque执行具体操作.容器queue和stack的元素进出是严格有序的,因此两个容器都不允许遍历,其内部没有定义iterator.
+
+容器rbtree
+ 
+红黑树是一种二叉查找树，但在每个结点上增加一个存储位表示结点的颜色，可以是red或black。红黑树满足以下五个性质：
+
+1. 每个结点或是红色或是黑色；
+
+2. 根结点是黑色；
+
+3. 每个叶结点是黑的；
+
+4. 如果一个结点是红的，则它的两个儿子均是黑色；
+
+5. 每个结点到其子孙结点的所有路径上包含相同数目的黑色结点。
+
+容器rb_tree封装了红黑树,是有序容器,提供了迭代器iterator用以遍历,但不应使用iterator直接改变元素值(虽然编程层面并没有禁止这样做).
+
+rb_tree提供两种插入操作:insert_unique和insert_equal,前者表示节点的key一定在整棵树中独一无二,否则插入失败;后者表示节点的key可重复.
+
+对于rb_tree,定义一个概念:节点的value包括其key和data,这里的data表示一般说法中的value.
+
+![图片3](https://user-images.githubusercontent.com/72439295/117523167-d7eff480-afe9-11eb-91c8-fc4a71e9aad6.png)
+
+
