@@ -117,3 +117,13 @@ map和multimap提供迭代器iterator用以顺序遍历容器.无法使用iterat
 map元素的key必須独一无二,因此其insert()调用的是内部rb_tree的insert_unique()方法;multimap元素的key可以重复,因此其insert()调用的是内部rb_tree的insert_equal()方法.
 
 map容器重载的[]运算符返回对应data的引用
+
+容器hashtable
+
+![图片4](https://user-images.githubusercontent.com/72439295/117541383-38148400-b046-11eb-9f94-5d9ac4081274.png)
+
+hashtable最开始只有53个桶,当元素个数大于桶的个数时,桶的数目扩大为最接近当前桶数两倍的质数,实际上,桶数目的增长顺序被写死在代码里.如上图所示，而在vs2013中桶最初被定义为8个，当元素超过桶时，每次扩充为原来的二倍。
+
+容器unordered_set、unordered_multiset、unordered_map和unordered_multimap
+
+C++11引入的容器unordered_set、unordered_multiset、unordered_map和unordered_multimap更名自gcc2.9的容器hash_set、hash_multiset、hash_map和hash_multimap,其底层封装了hashtable.用法与set、multiset、map和multimap类似.
