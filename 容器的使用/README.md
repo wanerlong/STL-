@@ -100,4 +100,20 @@ rb_tree提供两种插入操作:insert_unique和insert_equal,前者表示节点�
 
 ![图片3](https://user-images.githubusercontent.com/72439295/117523167-d7eff480-afe9-11eb-91c8-fc4a71e9aad6.png)
 
+容器set和multiset
 
+容器set和multiset以rb_tree为底层容器,因此其中元素是有序的,排序的依据是key.set和multiset元素的value和key一致.
+
+set和multiset提供迭代器iterator用以顺序遍历容器,但无法使用iterator改变元素值,因为set和multiset使用的是内部rb_tree的const_iterator.
+
+set元素的key必須独一无二,因此其insert()调用的是内部rb_tree的insert_unique()方法;multiset元素的key可以重复,因此其insert()调用的是内部rb_tree的insert_equal()方法.
+
+容器map和multimap
+
+容器map和multimap以rb_tree为底层容器,因此其中元素是有序的,排序的依据是key.
+
+map和multimap提供迭代器iterator用以顺序遍历容器.无法使用iterator改变元素的key,但可以用它来改变元素的data,因为map和multimap内部自动将key的类型设为const.
+
+map元素的key必須独一无二,因此其insert()调用的是内部rb_tree的insert_unique()方法;multimap元素的key可以重复,因此其insert()调用的是内部rb_tree的insert_equal()方法.
+
+map容器重载的[]运算符返回对应data的引用
