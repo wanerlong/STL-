@@ -127,3 +127,39 @@ hashtable最开始只有53个桶,当元素个数大于桶的个数时,桶的数�
 容器unordered_set、unordered_multiset、unordered_map和unordered_multimap
 
 C++11引入的容器unordered_set、unordered_multiset、unordered_map和unordered_multimap更名自gcc2.9的容器hash_set、hash_multiset、hash_map和hash_multimap,其底层封装了hashtable.用法与set、multiset、map和multimap类似.
+
+迭代器对算法的影响
+
+迭代器的iterator_category类型
+
+迭代器的关联类型iterator_category表示迭代器类型,共5种,用类表示:input_iterator_tag、forward_iterator_tag、bidirectional_iterator_tag、random_acess_iterator_tag和output_iterator_tag.其中前面四个是继承关系，他们之间的继承关系如下：
+
+![图片1](https://user-images.githubusercontent.com/72439295/117633043-3c5cb080-b1b0-11eb-958f-d6a1173665a8.png)
+
+之所以使用类而非枚举来表示迭代器类型,是出于一下两个考虑:
+
+1.使用类的继承可以表示不同迭代器类型的从属关系.
+
+2.STL算法可以根据传入的迭代器类型调用不同版本的重载函数.
+
+![图片2](https://user-images.githubusercontent.com/72439295/117634769-d4a76500-b1b1-11eb-8fcc-4ed40ebf8434.png)
+
+容器array、vector、deque对使用者来说是连续空间,是可以跳跃的,其迭代器是random_access_iterator类型.
+
+容器list是双向链表,容器set、map、multiset、multimap本身是有序的,他们的迭代器都可以双向移动,因此是bidirectional_iterator类型.
+
+容器forward_list是单向链表,容器unordered_set、unordered_map、unordered_multiset、unordered_map哈希表中的每个桶都是单向链表.因此其迭代器只能单向移动,因此是forward_iterator类型.
+
+迭代器istream_iterator和ostream_iterator本质上是迭代器,后文会提到这两个类的源码.
+
+STL中的算法copy根据不同的iterator_category和type_traits执行不同的重载函数.
+
+![图片3](https://user-images.githubusercontent.com/72439295/117635191-2a7c0d00-b1b2-11eb-8f7f-00274a7af0aa.png)
+
+iterater traits和type traits对算法的影响
+
+![图片5](https://user-images.githubusercontent.com/72439295/117637672-9cedec80-b1b4-11eb-95f8-4b823647fb3e.png
+
+
+
+
