@@ -158,7 +158,8 @@ STL中的算法copy根据不同的iterator_category和type_traits执行不同的
 
 iterater traits和type traits对算法的影响
 
-![图片5](https://user-images.githubusercontent.com/72439295/117637672-9cedec80-b1b4-11eb-95f8-4b823647fb3e.png
+![图片5](https://user-images.githubusercontent.com/72439295/117637779-b98a2480-b1b4-11eb-946e-787da7452654.png)
+
 
 
 
