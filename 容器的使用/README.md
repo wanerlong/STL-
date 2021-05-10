@@ -160,7 +160,44 @@ iterater traits和type traits对算法的影响
 
 ![图片5](https://user-images.githubusercontent.com/72439295/117637779-b98a2480-b1b4-11eb-946e-787da7452654.png)
 
+算法replace、replace_if、replace_copy
 
+算法replace将范围内所有等于old_value的元素都用new_value取代.
 
+算法replace_if将范围内所有满足pred()为true的元素都用new_value取代.
+
+算法replace_copy将范围内所有等于old_value的元素都以new_value放入新区间,不等于old_value的元素直接放入新区间
+
+算法count、count_if
+
+算法count计算范围内等于value的元素个数.
+
+算法count_if计算范围内所有满足pred()为true的元素个数.
+
+它们支持所有容器,但关联型容器(set、map、multiset、multimap、unordered_set、unordered_map、unordered_multiset和unordered_map)含有更高效的count方法,不应使用STL中的count函数.
+
+算法find、find_if
+
+算法find查找范围内第一个等于value的元素.
+
+算法find_if查找范围内第一个满足pred()为true的元素.
+
+它们支持所有容器,但关联型容器(set、map、multiset、multimap、unordered_set、unordered_map、unordered_multiset和unordered_map)含有更高效的find方法,不应使用STL中的find函数.
+
+算法sort
+
+算法sort暗示参数为random_access_iterator_tag类型迭代器,因此该算法只支持容器array、vector和deque.
+
+容器list和forward_list含有sort方法.
+
+容器set、map、multiset、multimap本身是有序的,容器unordered_set、unordered_map、unordered_multiset和unordered_map本身是无序的,不需要排序.
+
+算法binary_search
+
+算法binary_search从排好序的区间内查找元素value,支持所有可排序的容器.
+
+算法binary_search内部调用了算法lower_bound,使用二分查找方式查询元素.
+
+算法lower_bound和upper_bound分别返回对应元素的第一个和最后一个可插入位置.
 
 
