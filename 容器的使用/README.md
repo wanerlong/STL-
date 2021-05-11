@@ -205,9 +205,12 @@ iterater traits和type traits对算法的影响
 逆向迭代器reverse_iterator
 
 容器的rbegin()和rend()方法返回逆向迭代器reverse_iterator,逆向迭代器的方向与原始迭代器相反.逆向迭代器适配器reverse_iterator与正常迭代器的方向正好相反:逆向迭代器的尾(头)就是正向迭代器的头(尾);逆向迭代器的加(减)运算就是正向迭代器的减(加)运算.因此逆向迭代器取值时取得是迭代器前面一格元素的值.
+
 ![图片1](https://user-images.githubusercontent.com/72439295/117824426-119e5500-b2a1-11eb-9955-0ae9c7f71018.png)
 
-insert_iterator通过重载运算符=实现上述功能:
+用于插入的迭代器insert_iterator及其辅助函数inserter
+
+迭代器适配器insert_iterator生成用于原地插入运算的迭代器,使用insert_iterator迭代器插入元素时,就将原有位置的元素向后推.insert_iterator通过重载运算符=实现此功能:
 
 ![图片2](https://user-images.githubusercontent.com/72439295/117829089-02210b00-b2a5-11eb-9135-ff9bd04155b2.png)
 
