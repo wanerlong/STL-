@@ -220,4 +220,13 @@ iterater traits和type traits对算法的影响
 
 ![图片1](https://user-images.githubusercontent.com/72439295/117951673-f9811100-b346-11eb-8e28-301056ba927f.png)
 
+容器tuple
+
+容器tuple的源码使用可变模板参数,递归调用不同模板参数的tuple构造函数,以处理任意多的元素类型.因此它的构造过程中产生的中间容器是继承关系.
+
+调用head函数返回的是元素m_head的值.
+
+调用tail函数返回父类成分的起点,通过强制转换将当前tuple转换为父类tuple,丢弃了元素m_head所占内存.
+
+![图片2](https://user-images.githubusercontent.com/72439295/117952348-ad829c00-b347-11eb-900e-ca24ac1b5443.png)
 
