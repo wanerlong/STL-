@@ -214,3 +214,10 @@ iterater traits和type traits对算法的影响
 
 ![图片2](https://user-images.githubusercontent.com/72439295/117829089-02210b00-b2a5-11eb-9135-ff9bd04155b2.png)
 
+一个万用的Hash Function
+
+之前已经学过的hashtable里面有hash function，在hashtable的上层有unorder_map、unordered_set...,他们都有各自的hash function,整数的hash function是它自己，字符串的hash function是一串递归——当前字符的ASSIC值乘5加下一个字符的ASSIC值的和再乘5... 当我们需要给自己的结构体写一个hash function时，它并不是简简单单的各个元素的hashfunction相加，为了得到更加凌乱的hash code采用下面的经验办法：
+
+![图片1](https://user-images.githubusercontent.com/72439295/117951673-f9811100-b346-11eb-8e28-301056ba927f.png)
+
+
